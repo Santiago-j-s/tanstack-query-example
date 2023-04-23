@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useGetPokemons } from "../../queries";
-import { getImgSrc } from "../../service";
+import { getImgSrc, pageSize } from "../../service";
 import styles from "./styles.module.scss";
 
 function PokemonCardsSkeleton() {
   return (
     <>
-      {Array.from({ length: 20 }).map((_, i) => (
+      {Array.from({ length: pageSize }).map((_, i) => (
         <div key={i} className={styles.pokemonCardSkeleton}>
           <div className={styles.pokemonCardSkeletonImg} />
           <div className={styles.pokemonCardSkeletonName} />

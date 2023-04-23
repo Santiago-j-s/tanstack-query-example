@@ -2,7 +2,7 @@ const baseUrl = "https://pokeapi.co/api/v2";
 
 const githubSpriteUrl = (id: number) =>
   `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
-const pageSize = 20;
+export const pageSize = 40;
 
 export interface PokemonResult {
   name: string;
@@ -34,7 +34,7 @@ export async function listPokemons(
   });
 
   try {
-    const response = await fetch(`${baseUrl}/pokemon?=${params}`);
+    const response = await fetch(`${baseUrl}/pokemon?${params}`);
 
     if (!response.ok) {
       throw new Error(`Error fetching pokemon list: ${response.statusText}`);
